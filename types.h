@@ -7,6 +7,8 @@ using namespace std;
 typedef unsigned long long BB;
 typedef unsigned char Index;
 
+const int BOARD_SZ = 49;
+
 enum TreeType {
 	SEED = 0,
 	SIZE1 = 1,
@@ -32,20 +34,16 @@ void print_hex(BB bb) {
 	printf("0x%.12llxULL, ", bb);
 }
 
-inline int pop_cnt(const BB &bb) {
-	return __builtin_popcount(bb);
+inline short pop_cnt(const BB &bb) {
+	return __builtin_popcountll(bb);
 }
 
-inline int lsb(const BB &b) {
+inline Index lsb(const BB &b) {
 	return __builtin_ctzll(b);
 }
 
-inline int pop_lsb(BB &b) {
-	const int s = lsb(b);
+inline Index pop_lsb(BB &b) {
+	const Index s = lsb(b);
 	b &= b - 1;
 	return s;
-}
-
-inline short pop_cnt(BB &b) {
-	return __builtin_popcountll(b);
 }
