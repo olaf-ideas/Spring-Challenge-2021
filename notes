@@ -1,0 +1,31 @@
+opening 1 {
+	WAIT
+	GROW tree #1
+	GROW tree #2
+	SEED the center
+	GROW tree #3 (center one)
+}
+
+opening 2 {
+	WAIT
+	GROW tree #1
+	GROW tree #2
+	WAIT
+	GROW tree#1
+	SEED tree#1 0
+}
+
+to the last day {
+	
+}
+
+on last day {
+	COMPLETE from the best to the worst
+}
+
+
+State {
+	us,op  // bitmasks of all trees belonging to the player
+	trees[seed|#1|#2|#3] // bitmasks of occurrences
+	dormant // bitmask of all dormant trees
+}
